@@ -1,6 +1,11 @@
 # include <stdio.h> // Mainstay since we need standard input and output.
 # include <stdlib.h> // Helps us generate random numbers
 
+// Prototypes
+void print_hero_stats(void);
+void print_monster_stats(void);
+double calculate_damage(int bravery,int attack,int defense);
+
 // Hero's Profile
 int hero_bravery = 10;
 int hero_attack = 10;
@@ -18,7 +23,7 @@ char monster_name[50]= "Lil Carmine";
 void print_hero_stats(void){
     printf("=======================\n");
     printf("|%-22s|\n",hero_name);
-    printf("|HP: %.2lf                |\n",hero_health);
+    printf("|HP: %.2lf             |\n",hero_health);
     printf("|ATTACK: %d  DEF: %d   |\n",hero_attack,hero_defense); // Match the order
     printf("|Bravery: %d           |\n",hero_bravery);             // In which the variables are summoned.
     printf("=======================\n");
@@ -27,7 +32,7 @@ void print_hero_stats(void){
 void print_monster_stats(void){
     printf("=======================\n");
     printf("|%-22s|\n",monster_name);
-    printf("|HP: %.2lf                |\n",monster_health);
+    printf("|HP: %.2lf             |\n",monster_health);
     printf("|ATTACK: %d  DEF: %d   |\n",monster_attack,monster_defense); // Match the order here too.           // In which the variables are summoned.
     printf("=======================\n");
 }
@@ -45,7 +50,6 @@ double calculate_damage(int bravery,int attack,int defense){ // Two Parameters, 
 
     if (damage < 0) return 0;
     return damage;
-
 
 }
 
