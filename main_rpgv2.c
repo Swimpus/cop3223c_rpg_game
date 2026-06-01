@@ -21,6 +21,9 @@ void print_stats(char *name, int bravery, double health, int attack, int defense
 
 int main(void){
 
+    // Constants
+    const int potion_strength = 50;
+
     // Hero's Profile
     int hero_bravery = 10;
     int hero_attack = 10;
@@ -46,11 +49,11 @@ int main(void){
 
     do {
         printf("%s Attacks!\n",hero_name);
-        monster_health -= calculate_damage(hero_bravery,hero_attack,monster_defense);
+        monster_health -= calculate_damage(hero_name,hero_bravery, hero_attack,monster_defense);
         if (monster_health < 0) monster_health= 0;
 
         printf("%s Counter-Attacks!\n",monster_name);
-        hero_health -= calculate_damage(0,monster_attack,hero_defense);
+        hero_health -= calculate_damage(monster_name,0,monster_attack,hero_defense);
         if (hero_health < 0) hero_health = 0;
 
         print_stats(hero_name, hero_bravery, hero_health, hero_attack, hero_defense);
